@@ -1,14 +1,11 @@
 <template>
   <q-page class="row items-center justify-evenly">
+      <q-page-sticky position="bottom-right" :offset="[100, 100]">
+        <q-btn fab icon="add" color="red" />
+      </q-page-sticky>
     <example-component
       title="Cimate Change Convention"
       time = "5:00 pm - 6:00 pm"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-    <example-component
-      title="Cimate Change Convention"
       active
       :todos="todos"
       :meta="meta"

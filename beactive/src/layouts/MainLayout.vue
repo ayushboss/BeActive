@@ -1,21 +1,28 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+      <q-toolbar class="navbar">
+        <q-btn flat round dense icon="menu" class="q-mr-sm" />
+        <q-space />
+        <q-btn-dropdown stretch flat label="FILTER EVENTS">
+        <q-list>
+          <q-item-label header>Filter through social cause</q-item-label>
+          <q-item v-for="n in 3" :key="`x.${n}`" clickable v-close-popup tabindex="0">
+            <q-separator inset spaced />
+            <q-item-section>
+              <q-item-label>Photos</q-item-label>
+              <q-item-label caption>February 22, 2016</q-item-label>
+            </q-item-section>
+            <q-separator inset spaced />
+            <q-item-section side>
+              <q-icon name="info" />
+            </q-item-section>
+          </q-item>
+          <q-separator inset spaced />
+        </q-list>
+      </q-btn-dropdown>
+        <q-btn flat round dense icon="search" class="q-mr-xs" />
+        <q-btn flat round dense icon="group_add" />
       </q-toolbar>
     </q-header>
 
