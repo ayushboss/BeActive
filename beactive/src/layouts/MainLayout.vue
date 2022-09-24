@@ -23,9 +23,10 @@
       
       <div class="grid_page">
         <div class="profile_page">
-          <div class="user_profile" >
-            <q-avatar size="8rem" style="margin-left:auto;margin-right:auto;margin-top:3rem;display:block;"><img src="../assets/images/blankPFP.jpg"></q-avatar>
-            <h5 style="text-align: center;">First Last</h5>
+          <div class="user_profile">
+            <q-avatar size="8rem"><img src="../assets/images/blankPFP.jpg"></q-avatar>
+            <h1>First Last</h1>
+            <q-btn color="blue">Account Settings</q-btn>            
           </div>
           <q-separator />
           <div class="expansion_items" style= "margin: 10px solid red;">
@@ -56,15 +57,16 @@
               </q-expansion-item>
             </q-expansion-item>
           </div>
-          <q-btn>
-        
-          </q-btn>
+          <div class="sign_out_button">
+            <q-btn color="red">Sign Out</q-btn>            
+          </div>
         </div>
         
             <q-page-container class="main_page">
         <router-view />
             </q-page-container>
       </div>
+      <footer id="footer">Footer</footer>
   </q-layout>
 </template>
 
