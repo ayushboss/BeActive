@@ -59,8 +59,8 @@
         <q-toggle v-model="accept" label="I accept the license and terms" />
   
         <div>
-          <q-btn label="Submit" type="submit" color="primary"/>
-          <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+          <q-btn label="Submit" type="submit" color="primary" @click="onSubmit()"/>
+          <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
         </div>
         
         
@@ -71,12 +71,13 @@
   
   <script>
   import { useQuasar } from 'quasar'
-  import { ref } from 'vue'
+  import { ref, getCurrentInstance } from 'vue'
   
   export default {
     setup () {
       const $q = useQuasar()
   
+      const app = getCurrentInstance();
       const title = ref(null)
       const location = ref(null)
       const accept = ref(false)
@@ -144,12 +145,46 @@
             })
           }
           else {
-            $q.notify({
-              color: 'green-4',
-              textColor: 'white',
-              icon: 'cloud_done',
-              message: 'Submitted'
-            })
+
+            console.log(app);
+
+            let my_events = app?.appContext.config.globalProperties.$MY_EVENTS
+            let all_events = app?.appContext.config.globalProperties.$ALL_EVENTS
+            let my_interests = app?.appContext.config.globalProperties.$MY_INTERESTS
+            
+            console.log(all_events)
+
+            const new_event_obj = {
+              id: all_events[all_events.length-1].id+1,
+              title: title.value,
+              startingTime: start.value,
+              endTime: end.value,
+              location: location.value,
+              tags: tags.value,
+              description: description.value,
+              contactInfoOn: includeContactInfo.value,
+              contactInfo: 'as328@rice.edu',
+              interested: 1,
+              timeOfPosting: new Date(),
+            }
+            var flag = true;
+            all_events.forEach(element => {
+              if (element.title == title.value) {
+                flag = false;
+              }
+            });
+
+            if (flag) {
+              my_events.push(new_event_obj);
+              all_events.push(new_event_obj);
+              my_interests.push(new_event_obj);
+            }
+
+            app.appContext.config.globalProperties.$MY_EVENTS = my_events
+            app.appContext.config.globalProperties.$ALL_EVENTS = all_events
+            app.appContext.config.globalProperties.$MY_INTERESTS = my_interests
+
+            console.log(app.appContext.config.globalProperties.$MY_EVENTS)
           }
         },
   

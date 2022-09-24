@@ -34,7 +34,6 @@
               expand-separator
               icon="today"
               label="My Events"
-              :caption="my_events.length + ' event(s)'"
               default-opened
             >
               <q-expansion-item switch-toggle-side dense-toggle v-for="event in my_events" :key="event.id" :label="event.title" :header-inset-level="0" :content-inset-level="1.3">
@@ -47,7 +46,6 @@
               expand-separator
               icon="check"
               label="My Interests"
-              :caption="my_interests.length +  ' interest(s)'"
               default-opened
             >
               <q-expansion-item switch-toggle-side dense-toggle v-for="event in my_interests" :key="event.id" :label="event.title" :header-inset-level="0" :content-inset-level="1.3">
@@ -75,8 +73,6 @@ import { defineComponent, ref, getCurrentInstance } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
-
-
   setup () {
     const leftDrawerOpen = ref(false)
 
@@ -90,6 +86,16 @@ export default defineComponent({
       },
       my_events,
       my_interests
+    }
+  },
+  methods: {
+    num_my_events() {
+      const app = getCurrentInstance();
+      return app?.appContext.config.globalProperties.$MY_EVENTS.length;
+    },
+    num_my_interests() {
+      const app = getCurrentInstance();
+      return app?.appContext.config.globalProperties.$MY_INTERESTS.length;
     }
   }
 });
