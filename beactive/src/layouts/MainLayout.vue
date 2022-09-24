@@ -66,7 +66,7 @@
         <router-view />
             </q-page-container>
       </div>
-      <footer id="footer">Footer</footer>
+      <!-- <footer id="footer">Footer</footer> -->
   </q-layout>
 </template>
 
