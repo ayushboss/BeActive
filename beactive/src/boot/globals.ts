@@ -69,4 +69,34 @@ export default boot(({ app }) => {
         id: 7
     }
   ]
+
+  app.config.globalProperties.$MY_EVENTS = [
+    {
+      id: 0,
+      title: 'Climate Change Convention',
+      startingTime: new Date(),
+      endTime: new Date(),
+      location: 'RMC Hall',
+      tags: [{id: 1, title: 'Climate Change', label: 'Climate Change'}],
+      description: 'Some climate change convention thing at the RMC wooyeah',
+      contactInfoOn: true,
+      contactInfo: 'as328@rice.edu',
+      interested: 10,
+      timeOfPosting: new Date(),
+    }]
+  
+    app.config.globalProperties.$MY_INTERESTS = [
+      {
+        id: 1,
+        title: 'Tree Convention',
+        startingTime: new Date(),
+        endTime: new Date(),
+        location: 'Lovett College',
+        tags: [{id: 1, title: 'Climate Change', label: 'Climate Change'}, {id: 2, title: 'Health', label: "Health"}],
+        description: 'We really do love trees, don\'t we?',
+        contactInfoOn: false,
+        interested: 10,
+        timeOfPosting: new Date(),
+      }
+    ]
 })

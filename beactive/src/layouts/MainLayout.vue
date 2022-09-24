@@ -33,21 +33,12 @@
               expand-separator
               icon="today"
               label="My Events"
-              caption="2 events"
+              :caption="my_events.length + ' event(s)'"
               default-opened
             >
-              <q-expansion-item switch-toggle-side dense-toggle label="Climate Change Convention" :header-inset-level="0" :content-inset-level="1.3">
+              <q-expansion-item switch-toggle-side dense-toggle v-for="event in my_events" :key="event.id" :label="event.title" :header-inset-level="0" :content-inset-level="1.3">
                 <q-card>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                      commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                      eveniet doloribus ullam aliquid.
-                </q-card>
-              </q-expansion-item>
-              <q-expansion-item switch-toggle-side dense-toggle label="Black Lives Matter Movement" :header-inset-level="0" :content-inset-level="1.3">
-                <q-card>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                      commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                      eveniet doloribus ullam aliquid.
+                  {{event.description}}
                 </q-card>
               </q-expansion-item>
             </q-expansion-item>
@@ -55,21 +46,12 @@
               expand-separator
               icon="check"
               label="My Interests"
-              caption="2 interested"
+              :caption="my_interests.length +  ' interest(s)'"
               default-opened
             >
-              <q-expansion-item switch-toggle-side dense-toggle label="Climate Change Convention" :header-inset-level="0" :content-inset-level="1.3">
+              <q-expansion-item switch-toggle-side dense-toggle v-for="event in my_interests" :key="event.id" :label="event.title" :header-inset-level="0" :content-inset-level="1.3">
                 <q-card>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                      commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                      eveniet doloribus ullam aliquid.
-                </q-card>
-              </q-expansion-item>
-              <q-expansion-item switch-toggle-side dense-toggle label="Black Lives Matter Movement" :header-inset-level="0" :content-inset-level="1.3">
-                <q-card>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                      commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                      eveniet doloribus ullam aliquid.
+                  {{event.description}}
                 </q-card>
               </q-expansion-item>
             </q-expansion-item>
@@ -87,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, getCurrentInstance } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
@@ -96,11 +78,16 @@ export default defineComponent({
   setup () {
     const leftDrawerOpen = ref(false)
 
+    const app = getCurrentInstance();
+    const my_events = app?.appContext.config.globalProperties.$MY_EVENTS
+    const my_interests = app?.appContext.config.globalProperties.$MY_INTERESTS 
     return {
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      },
+      my_events,
+      my_interests
     }
   }
 });
