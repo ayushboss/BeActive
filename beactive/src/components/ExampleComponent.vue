@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="q-pa-md">
+    <div class="q-pa-md card__view">
     <q-card class="my-card">
       <q-img
         src="https://cdn.quasar.dev/img/parallax2.jpg"
@@ -55,6 +55,9 @@
       </div>
       <q-btn color="red" label="Interested?" unelevated rounded/>
     </q-card-section>
+    <div class="card__interested">
+      <p>4.1K interested</p>
+    </div>
     </q-card>
     
     </div>
