@@ -16,7 +16,7 @@
         
         <q-input
           filled
-          v-model="title"
+          v-model="location"
           label="Event Location"
           lazy-rules
           :rules="[ val => val && val.length > 0 || 'Please type something']"
@@ -27,14 +27,14 @@
         </q-input>
         <div class="text-bold">Starting Date and Time</div>  
         <div class="dateTime">
-          <q-date v-model="start" mask="YYYY-MM-DD HH:mm" color="purple" class="datePicker"/>
-          <q-time v-model="start" mask="YYYY-MM-DD HH:mm" color="purple" />
+          <q-date v-model="start" mask="YYYY-MM-DD HH:mm" class="datePicker"/>
+          <q-time v-model="start" mask="YYYY-MM-DD HH:mm"  />
         </div>
         <br />
         <div class="text-bold">Ending Date and Time</div> 
         <div class="dateTime">
-          <q-date v-model="end" mask="YYYY-MM-DD HH:mm" color="purple" class="datePicker"/>
-          <q-time v-model="end" mask="YYYY-MM-DD HH:mm" color="purple" />
+          <q-date v-model="end" mask="YYYY-MM-DD HH:mm" class="datePicker"/>
+          <q-time v-model="end" mask="YYYY-MM-DD HH:mm" />
         </div>
         
         <br />
@@ -78,6 +78,7 @@
       const $q = useQuasar()
   
       const title = ref(null)
+      const location = ref(null)
       const accept = ref(false)
       const start = ref('2019-02-22 21:02')
       const end = ref('2019-02-22 21:02')
@@ -124,6 +125,7 @@
 
       return {
         title,
+        location,
         accept,
         start,
         end,
