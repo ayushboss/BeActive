@@ -14,33 +14,16 @@
         :rules="[ val => val && val.length > 0 || 'Please type something']"
       />
 
-      <div class="dateTimeSection">
-        <div class="text-bold">Starting Date and Time</div>
-        <div class="dateTime">
-          <q-date
-            v-model="startDate"
-            first-day-of-week="1"
-            class="date"
-          />
-          <q-time 
-            v-model="startTime"
-          />
-        </div>
+      <div class="dateTime">
+        <q-date v-model="start" mask="YYYY-MM-DD HH:mm" color="purple" class="datePicker"/>
+        <q-time v-model="start" mask="YYYY-MM-DD HH:mm" color="purple" />
       </div>
       
-      <div class="dateTimeSection">
-        <div class="text-bold">Ending Date and Time</div>
-        <div class="dateTime">
-          <q-date
-            v-model="endDate"
-            first-day-of-week="1"
-            class="date"
-          />
-          <q-time 
-            v-model="endTime"
-          />
-        </div>
+      <div class="dateTime">
+        <q-date v-model="end" mask="YYYY-MM-DD HH:mm" color="purple" class="datePicker"/>
+        <q-time v-model="end" mask="YYYY-MM-DD HH:mm" color="purple" />
       </div>
+
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
@@ -62,16 +45,14 @@ export default {
 
     const title = ref(null)
     const accept = ref(false)
-    const startDate = ref('2020/01/01')
-    const startTime = ref('10:00')
+    const start = ref('2019-02-22 21:02')
     const endDate = ref('2020/01/01')
     const endTime = ref('10:00')
 
     return {
       title,
       accept,
-      startDate,
-      startTime,
+      start,
       endDate,
       endTime,
 
