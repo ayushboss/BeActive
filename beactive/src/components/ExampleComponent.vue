@@ -1,64 +1,105 @@
 <template>
-  <div>
-    <p>{{ title }}</p>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">
-        {{ todo.id }} - {{ todo.content }}
-      </li>
-    </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
+  <div class="q-pa-md" style="max-width: 400px">
+
+    <q-form
+      @submit="onSubmit"
+      @reset="onReset"
+      class="q-gutter-md"
+    >
+      <q-input
+        filled
+        v-model="title"
+        label="Event title"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type something']"
+      />
+
+      <div class="dateTimeSection">
+        <div class="text-bold">Starting Date and Time</div>
+        <div class="dateTime">
+          <q-date
+            v-model="startDate"
+            first-day-of-week="1"
+            class="date"
+          />
+          <q-time 
+            v-model="startTime"
+          />
+        </div>
+      </div>
+      
+      <div class="dateTimeSection">
+        <div class="text-bold">Ending Date and Time</div>
+        <div class="dateTime">
+          <q-date
+            v-model="endDate"
+            first-day-of-week="1"
+            class="date"
+          />
+          <q-time 
+            v-model="endTime"
+          />
+        </div>
+      </div>
+      <q-toggle v-model="accept" label="I accept the license and terms" />
+
+      <div>
+        <q-btn label="Submit" type="submit" color="primary"/>
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+      </div>
+    </q-form>
+
   </div>
 </template>
 
-<script lang="ts">
-import {
-  defineComponent,
-  PropType,
-  computed,
-  ref,
-  toRef,
-  Ref,
-} from 'vue';
-import { Todo, Meta } from './models';
+<script>
+import { useQuasar } from 'quasar'
+import { ref } from 'vue'
 
-function useClickCount() {
-  const clickCount = ref(0);
-  function increment() {
-    clickCount.value += 1
-    return clickCount.value;
-  }
+export default {
+  setup () {
+    const $q = useQuasar()
 
-  return { clickCount, increment };
-}
+    const title = ref(null)
+    const accept = ref(false)
+    const startDate = ref('2020/01/01')
+    const startTime = ref('10:00')
+    const endDate = ref('2020/01/01')
+    const endTime = ref('10:00')
 
-function useDisplayTodo(todos: Ref<Todo[]>) {
-  const todoCount = computed(() => todos.value.length);
-  return { todoCount };
-}
+    return {
+      title,
+      accept,
+      startDate,
+      startTime,
+      endDate,
+      endTime,
 
-export default defineComponent({
-  name: 'ExampleComponent',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    todos: {
-      type: Array as PropType<Todo[]>,
-      default: () => []
-    },
-    meta: {
-      type: Object as PropType<Meta>,
-      required: true
-    },
-    active: {
-      type: Boolean
+      onSubmit () {
+        if (accept.value !== true) {
+          $q.notify({
+            color: 'red-5',
+            textColor: 'white',
+            icon: 'warning',
+            message: 'You need to accept the license and terms first'
+          })
+        }
+        else {
+          $q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Submitted'
+          })
+        }
+      },
+
+      onReset () {
+        name.value = null
+        age.value = null
+        accept.value = false
+      }
     }
-  },
-  setup(props) {
-    return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
-  },
-});
+  }
+}
 </script>
