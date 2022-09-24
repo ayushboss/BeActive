@@ -1,16 +1,48 @@
 <template>
   <div>
-    <p>{{ title }}</p>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">
-        {{ todo.id }} - {{ todo.content }}
-      </li>
-    </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
+    <div class="q-pa-md">
+    <q-card class="my-card">
+      <q-parallax
+        src="https://cdn.quasar.dev/img/parallax1.jpg"
+        :height="150"
+      />
+
+      <q-card-section>
+        <h1 class="card__title">{{ title }}</h1>
+        <q-list>
+        <q-item clickable>
+          <q-item-section avatar>
+            <q-icon color="primary" name="watch"/>
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>Date/Time</q-item-label>
+            <q-item-label caption>24 Sept, 2024 | 5:00 pm - 6:00 pm</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable>
+          <q-item-section avatar>
+            <q-icon color="red" name="place" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>Location</q-item-label>
+            <q-item-label caption>RMC Grand Hall</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+      </q-card-section>
+      <q-separator color="blue" inset />
+      <q-card-section class="text-subitle2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sint sit ex, aliquid rem necessitatibus dolore reiciendis minima, modi facilis facere asperiores expedita in voluptatem!
+      </q-card-section>
+    </q-card>
+    </div>
   </div>
 </template>
+
+
 
 <script lang="ts">
 import {
@@ -60,5 +92,17 @@ export default defineComponent({
   setup(props) {
     return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
   },
+  methods: {
+    incrementCountM() {
+      this.clickCount++;
+    }
+  }
+
 });
+
+
+
+
+
+
 </script>

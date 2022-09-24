@@ -1,13 +1,23 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <example-component
-      title="Example component"
+      title="Cimate Change Convention"
+      time = "5:00 pm - 6:00 pm"
+      active
+      :todos="todos"
+      :meta="meta"
+    ></example-component>
+    <example-component
+      title="Cimate Change Convention"
       active
       :todos="todos"
       :meta="meta"
     ></example-component>
   </q-page>
+
+
 </template>
+
 
 <script lang="ts">
 import { Todo, Meta } from 'components/models';
@@ -39,6 +49,10 @@ export default defineComponent({
         id: 5,
         content: 'ct5'
       },
+      {
+        id: 6,
+        content: 'ct6'
+      }
 
     ]);
     const meta = ref<Meta>({
@@ -47,4 +61,6 @@ export default defineComponent({
     return { todos, meta };
   }
 });
+
+
 </script>
