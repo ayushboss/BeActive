@@ -1,4 +1,12 @@
 // app global css in SCSS form
+.dateTime{
+    display: flex;
+    justify-content: space-between;
+}
+.datePicker {
+    margin-right:1rem
+}
+
 @import "normalize.css";
 body{
     padding: 10rem;
@@ -57,3 +65,4 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+

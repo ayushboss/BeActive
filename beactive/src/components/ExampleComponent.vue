@@ -1,127 +1,43 @@
 <template>
-  <div>
-    <div class="q-pa-md">
-    <q-card class="my-card">
-      <q-img
-        src="https://cdn.quasar.dev/img/parallax2.jpg"
-        class="card__image"
-      />
-      
+export default {
+  setup () {
+    const $q = useQuasar()
 
-      <q-card-section class="card__section-one">
-        <div class="card__header">
-          <h1 class="card__title">{{ title }}</h1>
-          <p class="card__ago"> posted 4 hours ago</p>
-        </div>
-        <q-list>
-        <q-item clickable>
-          <q-item-section avatar>
-            <q-icon color= "blue" name="watch"/>
-          </q-item-section>
+    const title = ref(null)
+    const accept = ref(false)
+    const start = ref('2019-02-22 21:02')
+    const endDate = ref('2020/01/01')
+    const endTime = ref('10:00')
 
-          <q-item-section>
-            <q-item-label>Date/Time</q-item-label>
-            <q-item-label caption>24 Sept, 2024 | 5:00 pm - 6:00 pm</q-item-label>
-          </q-item-section>
-        </q-item>
+    return {
+      title,
+      accept,
+      start,
+      endDate,
+      endTime,
 
-        <q-item clickable>
-          <q-item-section avatar>
-            <q-icon color="red" name="place" />
-          </q-item-section>
+      onSubmit () {
+        if (accept.value !== true) {
+          $q.notify({
+            color: 'red-5',
+            textColor: 'white',
+            icon: 'warning',
+            message: 'You need to accept the license and terms first'
+          })
+        }
+        else {
+          $q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Submitted'
+          })
+        }
+      },
 
-          <q-item-section>
-            <q-item-label>Location</q-item-label>
-            <q-item-label caption>RMC Grand Hall</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-      </q-card-section>
-      <q-separator color="blue" inset />
-      <q-card-section class=" card__section-two text-subitle2">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sint sit ex, aliquid rem necessitatibus dolore reiciendis minima, modi facilis facere asperiores expedita in voluptatem!
-      </q-card-section>
-      <q-card-section class="card__section-three">
-      <div class="card__badge-list">
-      <q-badge class= "card__badge-each" color="blue">
-      Environment
-      </q-badge>
-      <q-badge class= "card__badge-each" color="blue">
-      Cimate
-      </q-badge>
-      <q-badge class= "card__badge-each" color="blue">
-      Future
-      </q-badge>
-      </div>
-      <q-btn color="red" label="Interested?" unelevated rounded/>
-    </q-card-section>
-    </q-card>
-    
-    </div>
-  </div>
-</template>
-
-
-
-<script lang="ts">
-import {
-  defineComponent,
-  PropType,
-  computed,
-  ref,
-  toRef,
-  Ref,
-} from 'vue';
-import { Todo, Meta } from './models';
-
-function useClickCount() {
-  const clickCount = ref(0);
-  function increment() {
-    clickCount.value += 1
-    return clickCount.value;
-  }
-
-  return { clickCount, increment };
-}
-
-function useDisplayTodo(todos: Ref<Todo[]>) {
-  const todoCount = computed(() => todos.value.length);
-  return { todoCount };
-}
-
-export default defineComponent({
-  name: 'ExampleComponent',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    todos: {
-      type: Array as PropType<Todo[]>,
-      default: () => []
-    },
-    meta: {
-      type: Object as PropType<Meta>,
-      required: true
-    },
-    active: {
-      type: Boolean
+      onReset () {
+        name.value = null
+        age.value = null
+        accept.value = false
+      }
     }
-  },
-  setup(props) {
-    return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
-  },
-  methods: {
-    incrementCountM() {
-      this.clickCount++;
-    }
-  }
-
-});
-
-
-
-
-
-
-</script>
