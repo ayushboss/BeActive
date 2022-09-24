@@ -2,10 +2,7 @@
   <div>
     <div class="q-pa-md">
     <q-card class="my-card">
-      <q-parallax
-        src="https://cdn.quasar.dev/img/parallax1.jpg"
-        :height="150"
-      />
+      
 
       <q-card-section>
         <h1 class="card__title">{{ title }}</h1>
