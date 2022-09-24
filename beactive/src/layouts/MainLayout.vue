@@ -23,20 +23,66 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
+      >
+      
+      <div class="User Profile" > 
+        <q-avatar size="8rem" style="margin-left:auto;margin-right:auto;margin-top:3rem;display:block;"><img src="../assets/images/blankPFP.jpg"></q-avatar>
+        <h5 style="text-align: center;">First Last</h5>
+      </div>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+      <q-separator />
+
+      <q-expansion-item
+        expand-separator
+        icon="today"
+        label="My Events"
+        caption="2 events"
+        default-opened
+      >
+        <q-expansion-item switch-toggle-side dense-toggle label="Climate Change Convention" :header-inset-level="0" :content-inset-level="1.3">
+          <q-card>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                eveniet doloribus ullam aliquid.
+          </q-card>
+        </q-expansion-item>
+
+        <q-expansion-item switch-toggle-side dense-toggle label="Black Lives Matter Movement" :header-inset-level="0" :content-inset-level="1.3">
+          <q-card>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                eveniet doloribus ullam aliquid.
+          </q-card>
+        </q-expansion-item>
+      </q-expansion-item>
+      
+      <q-expansion-item
+        expand-separator
+        icon="check"
+        label="My Interests"
+        caption="2 interested"
+        default-opened
+      >
+        <q-expansion-item switch-toggle-side dense-toggle label="Climate Change Convention" :header-inset-level="0" :content-inset-level="1.3">
+          <q-card>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                eveniet doloribus ullam aliquid.
+          </q-card>
+        </q-expansion-item>
+
+        <q-expansion-item switch-toggle-side dense-toggle label="Black Lives Matter Movement" :header-inset-level="0" :content-inset-level="1.3">
+          <q-card>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                eveniet doloribus ullam aliquid.
+          </q-card>
+        </q-expansion-item>
+      </q-expansion-item>
+
+      <q-btn>
+        
+      </q-btn>
     </q-drawer>
 
     <q-page-container>
@@ -47,65 +93,15 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
 
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
-    EssentialLink
-  },
 
   setup () {
     const leftDrawerOpen = ref(false)
 
     return {
-      essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
