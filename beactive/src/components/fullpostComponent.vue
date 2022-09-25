@@ -97,14 +97,14 @@
       <q-item clickable v-ripple>
         <q-item-section avatar>
           <q-avatar>
-            <img src="https://cdn.quasar.dev/img/avatar4.jpg">
+            <img src="https://cdn.quasar.dev/img/avatar1.jpg">
           </q-avatar>
         </q-item-section>
 
         <q-item-section>
           <q-item-label lines="1">Linear Project</q-item-label>
           <q-item-label caption lines="2">
-            <span class="text-weight-bold">John</span>
+            <span class="text-weight-bold">Alex</span>
             -- Can we schedule a call for tomorrow?
           </q-item-label>
         </q-item-section>
@@ -126,7 +126,7 @@
     <q-item-label lines="1">Linear Project</q-item-label>
     <q-item-label caption lines="2">
       <span class="text-weight-bold">John</span>
-      -- Can we schedule a call for tomorrow?
+      -- I'm going!
     </q-item-label>
   </q-item-section>
 
