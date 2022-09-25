@@ -20,7 +20,7 @@
 
           <q-item-section>
             <q-item-label>Date/Time</q-item-label>
-            <q-item-label caption>{{event.startingTime}} - {{event.endTime}}</q-item-label>
+            <q-item-label caption>September 25th, 2022 5 PM - 7 PM</q-item-label>
           </q-item-section>
         </q-item>
 
