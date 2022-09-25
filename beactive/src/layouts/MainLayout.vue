@@ -42,7 +42,6 @@
               expand-separator
               icon="today"
               label="My Events"
-              default-opened
             >
               <q-expansion-item switch-toggle-side dense-toggle v-for="event in my_events" :key="event.id" :label="event.title" :header-inset-level="0" :content-inset-level="1.3">
                 <q-card>
@@ -54,7 +53,6 @@
               expand-separator
               icon="check"
               label="My Interests"
-              default-opened
             >
               <q-expansion-item switch-toggle-side dense-toggle v-for="event in my_interests" :key="event.id" :label="event.title" :header-inset-level="0" :content-inset-level="1.3">
                 <q-card>
