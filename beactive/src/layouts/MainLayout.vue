@@ -2,14 +2,9 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <a href="/">
+          <img src="../assets/images/be_active.png" width="125" height="42"/>
+        </a>
         <q-space />
         <q-btn-dropdown stretch flat label="FILTER EVENTS">
         <q-list>
@@ -18,7 +13,6 @@
             <q-separator inset spaced />
             <q-item-section>
               <q-item-label>{{filter.label}}</q-item-label>
-              <q-item-label caption>{{filter.title}}</q-item-label>
             </q-item-section>
             <q-separator inset spaced />
             <q-item-section side>
@@ -119,37 +113,30 @@ export default defineComponent({
       filters: [
         {
             label: 'Climate Change',
-            title: 'Climate Change',
             id: 1
         },
         {
             label: 'Health',
-            title: 'Health',
             id: 2
         },
         {
             label: 'Education',
-            title: 'Education',
             id: 3
         },
         {
             label: 'Environment',
-            title: 'Environment',
             id: 4
         },
         {
             label: 'Human Rights',
-            title: 'Human Rights',
             id: 5
         },
         {
             label: 'Economy',
-            title: 'Economy',
             id: 6
         },
         {
             label: 'Politics',
-            title: 'Politics',
             id: 7
         }
     ]
