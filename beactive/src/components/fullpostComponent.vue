@@ -57,12 +57,12 @@
       </q-badge>
       </div>
     </q-card-section>
-    <q-separator />
+ 
     <div>
 
     </div>
     <div class="full_discussion">
-      <h1>Discussion</h1>
+      <h1 class="discussion">Discussion</h1>
     <q-separator />
 
       <div class="together">
