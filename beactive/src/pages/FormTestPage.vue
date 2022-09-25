@@ -1,22 +1,17 @@
 <template>
     <q-page class="row items-center justify-evenly">
-      <form-component
-        title="titles"
-        active
-        :todos="todos"
-        :meta="meta"
-        :events="my_events"
-      ></form-component>
+      <full-post-component></full-post-component>
     </q-page>
 </template>
   
 <script lang="ts">
   import { Todo, Meta, Event } from 'components/models';
   import FormComponent from 'components/FormComponent.vue';
+  import FullPostComponent from 'components/fullpostComponent.vue';
   import { defineComponent, ref } from 'vue';
   export default defineComponent({
     name: 'IndexPage',
-    components: { FormComponent },
+    components: { FullPostComponent },
     setup() {
       const todos = ref<Todo[]>([
         {

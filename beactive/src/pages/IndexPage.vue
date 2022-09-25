@@ -1,8 +1,19 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-      <q-page-sticky position="bottom-right" :offset="[100, 100]">
-        <q-btn fab icon="add" color="red"/>
-      </q-page-sticky>
+  <q-page class="row items-center justify-center">
+    <q-page-sticky position="bottom-right" :offset="[100, 100]">
+        <q-btn fab icon="add" color="red" @click="pop=!pop"/>
+    </q-page-sticky>
+    <q-dialog v-model="pop">
+      <q-card>
+        <form-component
+          title="titles"
+          active
+          :todos="todos"
+          :meta="meta"
+          :events="my_events"
+        ></form-component>
+    </q-card>
+    </q-dialog>
     <event-component
       title="Cimate Change Convention"
       time = "5:00 pm - 6:00 pm"
@@ -19,10 +30,11 @@
 import { Todo, Meta } from 'components/models';
 import EventComponent from 'components/EventComponent.vue';
 import { defineComponent, ref, getCurrentInstance } from 'vue';
+import FormComponent from '../components/FormComponent.vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { EventComponent },
+  components: { EventComponent, FormComponent },
   setup() {
     const todos = ref<Todo[]>([
       {
@@ -58,7 +70,7 @@ export default defineComponent({
     const app = getCurrentInstance();
     const my_events = app?.appContext.config.globalProperties.$ALL_EVENTS
 
-    return { todos, meta, my_events };
+    return { todos, meta, my_events, pop: ref(false) };
   }
 });
 

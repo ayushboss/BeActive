@@ -16,6 +16,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children : [{ path: '', component: () => import('pages/FormTestPage.vue') }],
   },
+  {
+    path: '/event/t21t523434',
+    component: () => import('layouts/MainLayout.vue'),
+    children : [{ path: '', component: () => import('pages/FormTestPage.vue') }],
+  },
 
   // Always leave this as last one,
   // but you can also remove it
