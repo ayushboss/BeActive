@@ -1,32 +1,26 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
+    <event-component
       title="Cimate Change Convention"
       time = "5:00 pm - 6:00 pm"
       active
       :todos="todos"
       :meta="meta"
-    ></example-component>
-    <example-component
-      title="Cimate Change Convention"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+      :events="my_events"
+    ></event-component>
   </q-page>
-
-
 </template>
 
 
 <script lang="ts">
 import { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
-import { defineComponent, ref } from 'vue';
+import EventComponent from 'components/EventComponent.vue';
+import { defineComponent, ref, getCurrentInstance } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
+  components: { EventComponent },
   setup() {
     const todos = ref<Todo[]>([
       {
@@ -58,7 +52,11 @@ export default defineComponent({
     const meta = ref<Meta>({
       totalCount: 1200
     });
-    return { todos, meta };
+
+    const app = getCurrentInstance();
+    const my_events = app?.appContext.config.globalProperties.$ALL_EVENTS
+
+    return { todos, meta, my_events };
   }
 });
 

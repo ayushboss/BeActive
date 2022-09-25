@@ -14,6 +14,8 @@
   import { Todo, Meta, Event } from 'components/models';
   import EventComponent from 'components/EventComponent.vue';
   import { defineComponent, ref } from 'vue';
+  import { getCurrentInstance } from 'vue'
+  import { createApp } from 'vue';
   export default defineComponent({
     name: 'IndexPage',
     components: { EventComponent },
@@ -44,36 +46,11 @@
       const meta = ref<Meta>({
         totalCount: 1200
       });
+      
+      const app = getCurrentInstance();
+      const my_events = app?.appContext.config.globalProperties.$ALL_EVENTS
 
-      const my_events = ref<Event[]>([
-        {
-          id: 0,
-          title: 'Climate Change Convention',
-          startingTime: new Date(),
-          endTime: new Date(),
-          location: 'RMC Hall',
-          tags: [{id: 0, title: 'Climate Change'}],
-          description: 'Some climate change convention thing at the RMC wooyeah',
-          contactInfoOn: true,
-          contactInfo: 'as328@rice.edu',
-          interested: 10,
-          timeOfPosting: new Date(),
-        },
-        {
-          id: 1,
-          title: 'Tree Convention',
-          startingTime: new Date(),
-          endTime: new Date(),
-          location: 'Lovett College',
-          tags: [{id: 0, title: 'Climate Change'}, {id: 1, title: 'Trees'}],
-          description: 'We really do love trees, don\'t we?',
-          contactInfoOn: false,
-          interested: 10,
-          timeOfPosting: new Date(),
-        }
-      ]);
-
-      return { todos, meta, my_events };
+      return { todos, meta, my_events};
     }
   });
 </script>
