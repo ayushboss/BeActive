@@ -1,8 +1,8 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-      <q-page-sticky position="bottom-right" :offset="[100, 100]">
+  <q-page class="row items-center justify-center">
+    <q-page-sticky position="bottom-right" :offset="[100, 100]">
         <q-btn fab icon="add" color="red" @click="pop=!pop"/>
-      </q-page-sticky>
+    </q-page-sticky>
     <q-dialog v-model="pop">
       <q-card>
         <form-component

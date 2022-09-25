@@ -76,7 +76,8 @@ h1{
 .card__interested{
     display: flex;
     color:#B7B7B7;
-    justify-content: flex-end;
+    justify-content: space-between;
+    font-weight: 900;
 }
 
 .card__interested p {
@@ -211,6 +212,4 @@ h1{
   .hidden {
       display: none;
   }
-  
-  
-  
+

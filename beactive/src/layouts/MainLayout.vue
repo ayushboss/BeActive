@@ -73,10 +73,12 @@
             <q-btn color="red">Sign Out</q-btn>            
           </div>
         </div>
-        
-            <q-page-container class="main_page">
-        <router-view />
-            </q-page-container>
+            <div class="center-main">
+              <q-page-container class="main_page">
+                      <router-view />
+              </q-page-container>
+            </div>
+            
       </div>
       <!-- <footer id="footer">Footer</footer> -->
   </q-layout>
