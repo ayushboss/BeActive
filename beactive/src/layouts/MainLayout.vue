@@ -32,8 +32,8 @@
       <div class="grid_page">
         <div class="profile_page">
           <div class="user_profile">
-            <q-avatar size="8rem"><img src="../assets/images/blankPFP.jpg"></q-avatar>
-            <h1>First Last</h1>
+            <q-avatar size="8rem"><img src="../assets/images/jahnavi.jpg"></q-avatar>
+            <h1>Jahnavi Mahajan</h1>
             <q-btn color="blue">Account Settings</q-btn>            
           </div>
           <q-separator />

@@ -12,7 +12,7 @@
             </q-item-section>
             <q-item-section>
               <q-item-label>Date/Time</q-item-label>
-              <q-item-label caption>24 Sept, 2024 | 5:00 pm - 6:00 pm</q-item-label>
+              <q-item-label caption>25 Sept, 2022 | 5:00 pm - 6:00 pm</q-item-label>
             </q-item-section>
           </q-item>
           <q-item clickable>
@@ -34,7 +34,9 @@
             </q-item-section>
           </q-item>
         </q-list>
-        <div class="full_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dicta nobis mollitia eveniet voluptatum. Ad obcaecati voluptas accusantium, non, ipsa tempore veniam pariatur enim itaque temporibus esse aut, quo distinctio! Iure optio nisi incidunt, mollitia ipsa minima autem iste nesciunt ratione maxime ipsum labore rem adipisci assumenda, ea hic aspernatur!</div>
+        <div class="full_description">#FridaysForFuture is a youth-led and -organised movement that began in August 2018, after 15-year-old Greta Thunberg and other young activists sat in front of the Swedish parliament every schoolday for three weeks, to protest against the lack of action on the climate crisis. She posted what she was doing on Instagram and Twitter and it soon went viral.
+
+</div>
         </div>
         <q-separator />
         <q-card-section class="card__section-three">
