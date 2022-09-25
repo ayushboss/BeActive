@@ -3,7 +3,7 @@
       <q-page-sticky position="bottom-right" :offset="[100, 100]">
         <q-btn fab icon="add" color="red"/>
       </q-page-sticky>
-    <example-component
+    <event-component
       title="Cimate Change Convention"
       time = "5:00 pm - 6:00 pm"
       active
@@ -17,7 +17,6 @@
 
 <script lang="ts">
 import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
 import EventComponent from 'components/EventComponent.vue';
 import { defineComponent, ref, getCurrentInstance } from 'vue';
 
