@@ -97,7 +97,8 @@
             style="width: 250px"
         />
 
-        <q-toggle v-model="includeContactInfo" label="I would like my contact info to be shown under this event" />  
+        <q-toggle v-model="includeContactInfo" label="I would like my contact info to be shown under this event" />
+        <q-toggle v-model="accept" label="I accept the license and terms" />
         <div>
           <q-btn label="Submit" type="submit" color="primary" @click="onSubmit()"/>
           <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
