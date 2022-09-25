@@ -61,6 +61,8 @@
     </div>
     <div class="full_discussion">
       <h1>Discussion</h1>
+    <q-separator />
+
       <div class="together">
         
         <p>Add comment</p>
@@ -138,7 +140,24 @@
       
 
     </div>
+
 </div>
+
+
+<!-------->
+
+
+
+
+<!-------->
+
+
+
+
+
+
+
+
 </template>
 
 
@@ -195,6 +214,8 @@ export default defineComponent({
     incrementCountM() {
       this.clickCount++;
     }
+
+
   }
 
 });

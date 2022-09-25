@@ -152,6 +152,7 @@ h1{
 .together{
     display: flex;
     align-items: center;
+    margin-top: 1rem;
     
 }
 
@@ -159,3 +160,30 @@ h1{
     font-size: 2rem;
     margin-left: 1rem;
 }
+
+.full-screen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+  }
+  
+  .flex-container-center {
+    displaY: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+  }
+  
+  .full-screen{
+    color: white
+  }
+  
+  .hidden {
+      display: none;
+  }
+  
+  
+  

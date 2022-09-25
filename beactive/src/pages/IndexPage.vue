@@ -1,7 +1,7 @@
 <template>
   <q-page class="row items-center justify-evenly">
       <q-page-sticky position="bottom-right" :offset="[100, 100]">
-        <q-btn fab icon="add" color="red" />
+        <q-btn fab icon="add" color="red"/>
       </q-page-sticky>
     <example-component
       title="Cimate Change Convention"
@@ -55,9 +55,11 @@ export default defineComponent({
     const meta = ref<Meta>({
       totalCount: 1200
     });
-    return { todos, meta };
+    return { todos, meta, pop: ref(false)};
+    
   }
 });
+
 
 
 </script>
