@@ -1,6 +1,9 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <event-component
+      <q-page-sticky position="bottom-right" :offset="[100, 100]">
+        <q-btn fab icon="add" color="red"/>
+      </q-page-sticky>
+    <example-component
       title="Cimate Change Convention"
       time = "5:00 pm - 6:00 pm"
       active
@@ -59,6 +62,7 @@ export default defineComponent({
     return { todos, meta, my_events };
   }
 });
+
 
 
 </script>

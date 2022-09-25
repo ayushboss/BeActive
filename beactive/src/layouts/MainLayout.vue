@@ -66,7 +66,6 @@
                 <q-card>
                   {{event.description}}
                 </q-card>
-              </q-expansion-item>
             </q-expansion-item>
           </div>
           <div class="sign_out_button">

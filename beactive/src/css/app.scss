@@ -1,4 +1,12 @@
 // app global css in SCSS form
+
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .dateTime{
     display: flex;
 }
@@ -115,3 +123,94 @@ h1{
     text-align: center;
     background-color: skyblue;
 }
+
+.navbar{
+    height: 5rem;
+    background-color: #2096F3;
+}
+
+.banner{
+    width: 78vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.full_view{
+    position: absolute;
+    top: -30;
+    left: 0;
+}
+
+.full_view_list{
+    margin: 2rem;
+    display: flex;
+}
+
+.full_title{
+    align-items: center;
+    margin: 0;
+    font-weight: 900;
+    font-size: 2rem;
+    position: absolute;
+    left: 25%;
+    top: 20px;
+}
+
+.full_time{
+    position: absolute;
+    right: 10%;
+    top: 20px;
+
+}
+
+.full{
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.thin{
+    padding: .3rem 3rem;
+}
+
+.full_discussion{
+    padding-left: 3rem;
+}
+
+.together{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    
+}
+
+.comment-icon{
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.full-screen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+  }
+  
+  .flex-container-center {
+    displaY: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+  }
+  
+  .full-screen{
+    color: white
+  }
+  
+  .hidden {
+      display: none;
+  }
+  
+  
+  

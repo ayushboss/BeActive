@@ -59,6 +59,9 @@
       <p>4.1K interested</p>
     </div>
     </q-card>
+
+
+    
     
     </div>
   </div>
@@ -118,6 +121,8 @@ export default defineComponent({
     incrementCountM() {
       this.clickCount++;
     }
+
+
   }
 
 });
