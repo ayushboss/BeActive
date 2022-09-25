@@ -10,6 +10,7 @@ export interface Meta {
 export interface Tag {
   id: number;
   title: string;
+  label: string;
 }
 
 export interface Event {

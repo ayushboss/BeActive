@@ -9,7 +9,6 @@
 
 .dateTime{
     display: flex;
-    justify-content: space-between;
 }
 .datePicker {
     margin-right:1rem
@@ -95,6 +94,34 @@ h1{
 
 .card__view{
     padding: 5rem;
+}
+
+.expansion_items{
+    max-width: 17rem;
+}
+
+.sign_out_button{
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.account_settings{
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.user_profile{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    text-align: center;
+    background-color: skyblue;
 }
 
 .navbar{
