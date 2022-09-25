@@ -10,13 +10,27 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+        <q-space />
+        <q-btn-dropdown stretch flat label="FILTER EVENTS">
+        <q-list>
+          <q-item-label header>Filter through social cause</q-item-label>
+          <q-item v-for="filter in filters" :key="filter.id" clickable v-close-popup tabindex="0">
+            <q-separator inset spaced />
+            <q-item-section>
+              <q-item-label>{{filter.label}}</q-item-label>
+              <q-item-label caption>{{filter.title}}</q-item-label>
+            </q-item-section>
+            <q-separator inset spaced />
+            <q-item-section side>
+              <q-icon name="info" />
+            </q-item-section>
+          </q-item>
+        <q-separator inset spaced />
+      </q-list>
+      </q-btn-dropdown>
+        <q-btn flat round dense icon="search" class="q-mr-xs" />
+        <q-btn flat round dense icon="group_add" />
+    </q-toolbar>
     </q-header>
 
 
@@ -96,6 +110,46 @@ export default defineComponent({
     num_my_interests() {
       const app = getCurrentInstance();
       return app?.appContext.config.globalProperties.$MY_INTERESTS.length;
+    }
+  }, data() {
+    return {
+      filters: [
+        {
+            label: 'Climate Change',
+            title: 'Climate Change',
+            id: 1
+        },
+        {
+            label: 'Health',
+            title: 'Health',
+            id: 2
+        },
+        {
+            label: 'Education',
+            title: 'Education',
+            id: 3
+        },
+        {
+            label: 'Environment',
+            title: 'Environment',
+            id: 4
+        },
+        {
+            label: 'Human Rights',
+            title: 'Human Rights',
+            id: 5
+        },
+        {
+            label: 'Economy',
+            title: 'Economy',
+            id: 6
+        },
+        {
+            label: 'Politics',
+            title: 'Politics',
+            id: 7
+        }
+    ]
     }
   }
 });

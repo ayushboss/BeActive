@@ -46,7 +46,7 @@
         {{tag.title}}
         </q-badge>
       </div>
-      <q-btn color="red" label="Interested?" unelevated rounded/>
+      <q-btn color="red" label="Interested" @click="onInterestClick(event.id)" unelevated rounded/>
     </q-card-section>
     <div class="card__interested">
       <p>{{event.interested}} interested</p>
@@ -57,6 +57,12 @@
   </div>
 </template>
   
+<style scoped>
+    .clicked{
+      background-color: green;
+    }
+</style>
+
 <script lang="ts">
   import {
     defineComponent,
@@ -65,9 +71,10 @@
     ref,
     toRef,
     Ref,
+    getCurrentInstance,
   } from 'vue';
   import { Todo, Meta, Event } from './models';
-  
+
   function useClickCount() {
     const clickCount = ref(0);
     function increment() {
@@ -77,7 +84,7 @@
   
     return { clickCount, increment };
   }
-  
+
   function useDisplayTodo(todos: Ref<Todo[]>) {
     const todoCount = computed(() => todos.value.length);
     return { todoCount };
@@ -107,7 +114,37 @@
       }
     },
     setup(props) {
-      return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
-    },
+        const app = getCurrentInstance();
+        var clicked = false;
+        function onInterestClick(curId: number) {
+            const my_interests = app?.appContext.config.globalProperties.$MY_INTERESTS
+            const all_events = app?.appContext.config.globalProperties.$ALL_EVENTS
+            
+            var desiredEvent;
+
+            for (var i = 0; i < my_interests.length; i++) {
+                if (all_events[i].id == curId) {
+                    desiredEvent = all_events[i];
+                }
+            }
+
+            var flag = false
+
+            for (var i = 0; i < my_interests.length; i++) {
+                let cur_interest = my_interests[i];
+                if (cur_interest.id == i) {
+                    flag = true;
+                    app?.appContext.config.globalProperties.$MY_INTERESTS.splice(i,1);
+                    break;
+                }
+            }
+
+            if (!flag) {
+                app?.appContext.config.globalProperties.$MY_INTERESTS.push(desiredEvent);
+            }
+            clicked = !clicked;
+        }
+      return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')), onInterestClick, clicked};
+    }
   });
 </script>
