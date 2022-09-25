@@ -1,8 +1,8 @@
 <template>
     <div>
     <div class="q-pa-md card__view" v-for="event in events" :key="event.id">
-    <q-card class="my-card" @click="">
-      <q-img
+      <q-card class="my-card">
+        <q-img
         src="https://cdn.quasar.dev/img/parallax2.jpg"
         class="card__image"
       />
@@ -50,10 +50,9 @@
     </q-card-section>
     <div class="card__interested">
       <p>{{event.interested}} interested</p>
-      <p @click="">View More</p>
+      <a href="http://localhost:8080/event/t21t523434"><p>View More</p></a>
     </div>
     </q-card>
-    
     </div>
   </div>
 </template>
