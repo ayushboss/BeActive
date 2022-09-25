@@ -29,7 +29,7 @@
 
 
       
-      <div class="grid_page">
+      <div class="grid_page" >
         <div class="profile_page">
           <div class="user_profile">
             <q-avatar size="8rem"><img src="../assets/images/jahnavi.jpg"></q-avatar>
