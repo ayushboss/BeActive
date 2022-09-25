@@ -49,9 +49,8 @@
       <q-btn color="red" label="Interested" @click="onInterestClick(event.id)" unelevated rounded/>
     </q-card-section>
     <div class="card__interested">
-      <p>View More</p>
-      <p>{{event.interested}} interested</p>
       <a href="http://localhost:8080/event/t21t523434"><p>View More</p></a>
+      <p>{{event.interested}} interested</p>
     </div>
     </q-card>
     </div>
