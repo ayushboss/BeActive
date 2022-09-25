@@ -74,6 +74,7 @@
           </div>
         </div>
             <div class="center-main">
+              <div></div>
               <q-page-container class="main_page">
                       <router-view />
               </q-page-container>

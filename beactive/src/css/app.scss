@@ -87,6 +87,7 @@ h1{
 
 .grid_page{
     display: flex;
+    z-index: 99;
 }
 
 .expansion_items{
@@ -213,3 +214,6 @@ h1{
       display: none;
   }
 
+.sticky{
+    z-index: 100;
+}
