@@ -56,7 +56,7 @@
       <q-btn color="red" label="Interested?" unelevated rounded/>
     </q-card-section>
     <div class="card__interested">
-      <p>4.1K interested</p>
+      <p>67 interested</p>
     </div>
     </q-card>
 

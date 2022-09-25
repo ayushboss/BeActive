@@ -116,25 +116,26 @@ export default boot(({ app }) => {
       endTime: new Date(),
       location: 'RMC Hall',
       tags: [{id: 1, title: 'Climate Change', label: 'Climate Change'}],
-      description: 'Some climate change convention thing at the RMC wooyeah',
+      description: '#FridaysForFuture is a youth-led and -organised movement that began in August 2018, after 15-year-old Greta Thunberg and other young activists sat in front of the Swedish parliament every schoolday for three weeks, to protest against the lack of action on the climate crisis. She posted what she was doing on Instagram and Twitter and it soon went viral.',
       contactInfoOn: true,
       contactInfo: 'as328@rice.edu',
-      interested: 10,
+      interested: 67,
       timeOfPosting: new Date(),
-    }]
+    },]
   
     app.config.globalProperties.$MY_INTERESTS = [
       {
-        id: 1,
-        title: 'Tree Convention',
+        id: 4,
+        title: 'LIRS Ukraine Crisis Action Hub Convention',
         startingTime: new Date(),
         endTime: new Date(),
-        location: 'Lovett College',
-        tags: [{id: 1, title: 'Climate Change', label: 'Climate Change'}, {id: 2, title: 'Health', label: "Health"}],
-        description: 'We really do love trees, don\'t we?',
-        contactInfoOn: false,
-        interested: 10,
+        location: 'The Skyspace',
+        tags: [{id: 1, title: 'Human Rights', label: 'Human Rights'}, {id: 2, title: 'Immigration', label: "Immigration"}],
+        description: 'The crisis in Ukraine has forced millions of refugees to flee from their homes. At LIRS, we stand ready to welcome refugee children and families to the United States. Your gift to Neighbors in Need: Ukraine will help provide essential support for newly arrived families, including emergency medical care, temporary housing, financial support for basic necessities, and more.      ',
+        contactInfoOn: true,
+        contactInfo: 'yu167@rice.edu',
+        interested: 184,
         timeOfPosting: new Date(),
-      }
+      },
     ]
 })

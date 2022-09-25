@@ -123,25 +123,13 @@
             var desiredEvent;
 
             for (var i = 0; i < my_interests.length; i++) {
+              console.log(all_events[i]);
                 if (all_events[i].id == curId) {
                     desiredEvent = all_events[i];
                 }
             }
 
-            var flag = false
-
-            for (var i = 0; i < my_interests.length; i++) {
-                let cur_interest = my_interests[i];
-                if (cur_interest.id == i) {
-                    flag = true;
-                    app?.appContext.config.globalProperties.$MY_INTERESTS.splice(i,1);
-                    break;
-                }
-            }
-
-            if (!flag) {
-                app?.appContext.config.globalProperties.$MY_INTERESTS.push(desiredEvent);
-            }
+            app?.appContext.config.globalProperties.$MY_INTERESTS.push(desiredEvent);
             clicked = !clicked;
         }
       return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')), onInterestClick, clicked};

@@ -41,7 +41,7 @@
         <q-separator />
         <q-card-section class="card__section-three">
           <div class="card__interested full">
-            <p>4.1K interested</p>
+            <p>67 interested</p>
         <q-btn class = "thin" color="red" label="Interested?" unelevated rounded/>
       
   </div>
